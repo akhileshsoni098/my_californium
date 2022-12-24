@@ -2,8 +2,6 @@ const { type } = require("express/lib/response")
 const UserModel= require("../models/userModel")
 
 
-
-
 const basicCode= async function(req, res) {
     
     let contentTypeHeader = req.headers.content-type
