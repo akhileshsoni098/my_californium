@@ -1,5 +1,4 @@
-const jwt = require('jsonwebtoken')
-
+const jwt= require("jsonwebtoken");
 
 let mid = function(req,res,next){
 
@@ -10,8 +9,8 @@ if(!token) return res.send({msg: "token is needed"})
 let decodedToken = jwt.verify(token, "functionUp-akhilesh")
 
 if(!decodedToken) return ({msg: "token is invailed"})
-next()
 
+next()
 }
 
 module.exports.mid = mid

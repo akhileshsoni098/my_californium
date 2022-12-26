@@ -3,7 +3,7 @@ const router = express.Router();
 
 const UserConr = require('../controllers/myUserController')
 
-const midd = require('../middleware/myMidd')
+const midd = require('../middleware/myMidd')  
 
 
 

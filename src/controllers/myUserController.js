@@ -1,5 +1,9 @@
-const User = require('../models/myUserModel')
-const createUser = async function(req, res){
+
+
+const userModel = require('../models/myUserModel')
+const jwt = require('jsonwebtoken')
+
+const createUser  = async function(req, res){
 let userDetails = req.body
 let saveData = await User.create(userDetails)
 
@@ -29,7 +33,7 @@ const userLogin=async function(req,res){
  const getUser=async function (req,res){
   let userId = req.params.userId;
    
-    let userData= await userModel.findById({_id:userId})
+    let userData= await userModel.findById(userId)
     if(!userData) {res.send({msg : "invalide user id "})}
 
     res.send({status:true, data:userData })
@@ -39,7 +43,7 @@ const userLogin=async function(req,res){
  
 const updateUser = async function (req, res) {
   let userId = req.params.userId;
-  let user = await userModel.findById(userId);
+  let user = await userModel.findById({_id:userId}, {new:true});
   if (!user) {
     return res.send("No such user exists");
   }
@@ -55,11 +59,12 @@ const deleteUser = async function (req, res) {
   if (!user) {
     return res.send("No such user exists");
   }
+
   let userData = req.body;
 
-  let deleteUser = await userModel.findOneAndDelete({ _id: userId }, userData);
+  let deleteUser = await userModel.findOneAndUpdate( userId, {$set:userData} );
   res.send({ status:deleteUser, data: deleteUser });
-
+  
 };
 
 module.exports.userLogin = userLogin;
