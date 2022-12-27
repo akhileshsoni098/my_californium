@@ -12,10 +12,10 @@ router.get("/test-me", function (req, res) {
 })
 
 
-
 router.post("/createUser", UserConr.createUser)
 
  router.post("/login", UserConr.userLogin)
+
 
 router.get("/users/:userId", midd.mid, UserConr.getUser)
 
@@ -23,6 +23,7 @@ router.get("/users/:userId", midd.mid, UserConr.getUser)
 
  router.get("/user/:userId", midd.mid,UserConr.deleteUser)
 
+ router.post("/user/:userId/posts", midd.midd2,UserConr.postmesssage)
 
 
 module.exports = router;

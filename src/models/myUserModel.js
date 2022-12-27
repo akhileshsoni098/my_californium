@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
  const userId = new mongoose.Schema({
-name: String,
-
 
 firstName : String,
     lastName : String,
@@ -13,7 +11,10 @@ firstName : String,
         type:String,
         enum: ["male", "female", "others"]
     },
-
+    posts :{
+        type:[],
+        default:[]
+    },
 	isDeleted:{
         type:Boolean,
         default: false
