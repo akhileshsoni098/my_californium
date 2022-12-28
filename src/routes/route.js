@@ -22,6 +22,7 @@ router.get("/users/:userId", midd.mid, UserConr.getUser)
  router.put("/users/:userId", midd.mid,UserConr.updateUser)
 
  router.get("/user/:userId", midd.mid,UserConr.deleteUser)
+// authorization
 
  router.post("/user/:userId/posts", midd.midd2,UserConr.postmesssage)
 
