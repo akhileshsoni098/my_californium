@@ -73,17 +73,27 @@ try{
  
  
 const updateUser = async function (req, res) {
+
   try{
+
   let userId = req.params.userId;
+
   let user = await userModel.findById({_id:userId});
+
   if (!user) {
+
     return res.status(400).send("No such user exists");
+
   }
+
   let userData = req.body;
 
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
+
   res.staus(200).send({ status: true, data: updatedUser });
+
 } catch(err){
+  
   res.status(500).send({error:err.message})
 }
 };
@@ -93,18 +103,26 @@ const updateUser = async function (req, res) {
 
 
 const deleteUser = async function (req, res) {
+
   try{
+
   let userId = req.params.userId;
+
   let user = await userModel.findById(userId);
+
   if (!user) {
+
     return res.status(400).send("No such user exists");
   }
 
   let userData = req.body;
 
-  let deleteUser = await userModel.findOneAndUpdate( userId, {$set:userData} );
+  let deleteUser = await userModel.findOneAndUpdate( userId, {$set:userData} );   
+
   res.status(200).send({ status:deleteUser, data: deleteUser });
+
 }catch(err){
+
   res.status(500)({error:err.message})
 }
 };
