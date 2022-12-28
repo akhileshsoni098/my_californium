@@ -55,6 +55,7 @@ const userLogin=async function(req,res){
 // Write a **GET api /users/:userId** to fetch user details. Pass the userId as path param in the url.
 
  const getUser=async function (req,res){
+  
 try{
   let userId = req.params.userId;
    
