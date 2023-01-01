@@ -5,7 +5,7 @@ user_id:{
     type:objId,
     ref:"NewUser"
 },
-user_id:{
+productId:{
     type:objId,
     ref:"Products"
 },

@@ -18,6 +18,7 @@ const userData = new mongoose.Schema({
             enum:["male","female" , "others"]
          } ,  // Allowed values are - “male”, “female”, “other”
 
+        
         isFreeAppUser:{
             type:Boolean,
             default:false

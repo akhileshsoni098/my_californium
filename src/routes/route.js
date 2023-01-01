@@ -12,12 +12,10 @@ router.get("/test-me", function (req, res) {
 
 router.post("/productCreate" , productController.productCreate)
 
-router.post('/createUser', headerMidi.middl, UserController.createUser)
+router.post('/createUser',  UserController.createUser)
 
-router.post('/orderCreate',headerMidi.middl,OrderController.orderCreate )
+router.post('/orderCreate', OrderController.orderCreate )
 
 
-// router.post("/createBook", commonMW.abc, BookController.createBook  )
-// router.post("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.abc, UserController.basicCode, commonMW.mid4)
 
 module.exports = router;
